@@ -2,8 +2,7 @@ title: Master Programming 2026
 author: Roland Mitric
 
 execute:
-  execute_notebooks: "cache"
-  timeout: 300
+  execute_notebooks: "off"
 
 html:
   use_thebe: true
