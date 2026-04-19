@@ -50,7 +50,7 @@ jobs:
           mkdir -p _site
           cp -R book/_build/html/. _site/
           rm -rf _site/_build _site/reports _site/_sources/_build
-          find _site -mindepth 1 -name '.*' ! -name '.nojekyll' -exec rm -rf {} +
+          find _site -depth -mindepth 1 -name '.*' ! -name '.nojekyll' -exec rm -rf {} +
           touch _site/.nojekyll
 
       - name: Upload GitHub Pages artifact
