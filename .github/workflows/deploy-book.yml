@@ -48,9 +48,12 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p _site
-          cp -R book/_build/html/. _site/
-          rm -rf _site/_build _site/reports _site/_sources/_build
-          find _site -depth -mindepth 1 -name '.*' ! -name '.nojekyll' -exec rm -rf {} +
+          rsync -a --delete \
+            --exclude '_build/' \
+            --exclude 'reports/' \
+            --exclude '.buildinfo' \
+            --exclude '.*' \
+            book/_build/html/ _site/
           touch _site/.nojekyll
 
       - name: Upload GitHub Pages artifact
