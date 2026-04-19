@@ -43,7 +43,7 @@ jobs:
       - name: Build book
         run: |
           jupyter-book clean book --all
-          jupyter-book build book
+          jupyter-book build book --path-output book
 
       - name: Prepare Pages artifact
         run: |
