@@ -1,3 +1,7 @@
 ipykernel
 numpy
 matplotlib
+requests
+numba
+py3Dmol
+sympy
