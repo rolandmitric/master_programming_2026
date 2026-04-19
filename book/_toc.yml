@@ -1,0 +1,11 @@
+format: jb-book
+root: index
+chapters:
+  - file: introduction.ipynb
+  - file: atom_molecule.ipynb
+  - file: gaussian_functions.ipynb
+  - file: basis_sets.ipynb
+  - file: symbolic_overlap_generator.ipynb
+    title: Symbolic Overlap Generator
+  - file: molecular_integrals.ipynb
+    title: Molecular Integrals

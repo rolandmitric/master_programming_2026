@@ -1,0 +1,10 @@
+/* Wider readable content area on desktop/tablet */
+@media (min-width: 1200px) {
+  .bd-page-width {
+    max-width: 96%;
+  }
+
+  .bd-main .bd-content .bd-article-container {
+    max-width: 100ch;
+  }
+}
