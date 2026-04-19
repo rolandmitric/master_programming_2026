@@ -47,19 +47,14 @@ jobs:
 
       - name: Prepare Pages artifact
         run: |
-          mkdir -p _site
-          rsync -a --delete \
-            --exclude '_build/' \
-            --exclude 'reports/' \
-            --exclude '.buildinfo' \
-            --exclude '.*' \
-            book/_build/html/ _site/
-          touch _site/.nojekyll
+          rm -rf book/_build/html/_build book/_build/html/_sources/_build book/_build/html/reports
+          rm -f book/_build/html/.buildinfo
+          touch book/_build/html/.nojekyll
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: _site
+          path: book/_build/html
           include-hidden-files: true
 
   deploy:
