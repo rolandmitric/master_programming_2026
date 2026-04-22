@@ -20,6 +20,7 @@ notebooks = [
   "ipywidgets",
   "jupyterlab",
   "matplotlib",
+  "nest_asyncio2",
   "pyvista",
   "trame",
   "trame-vtk",
