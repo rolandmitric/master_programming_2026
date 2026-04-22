@@ -8,6 +8,8 @@ __pycache__/
 build/
 dist/
 pip-wheel-metadata/
+.python/
+.venv/
 
 # Jupyter
 .ipynb_checkpoints/
