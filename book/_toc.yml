@@ -3,8 +3,12 @@ root: index
 chapters:
   - file: introduction.ipynb
   - file: atom_molecule.ipynb
+  - file: quantum_chemistry.ipynb
+    title: Quantum Chemistry
   - file: gaussian_functions.ipynb
+    title: Gaussian Functions
   - file: basis_sets.ipynb
+    title: Basis Sets
   - file: symbolic_overlap_generator.ipynb
     title: Symbolic Overlap Generator
   - file: molecular_integrals.ipynb
