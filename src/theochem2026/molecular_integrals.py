@@ -272,8 +272,7 @@ def eri_shell_quartet(
 @njit(fastmath=True)
 def overlap_matrix_driver(n_ao: int, pair_a: np.ndarray, pair_b: np.ndarray, 
                           offsets: np.ndarray, exp_data, coeff_data, norm_data, center_data, ijk_data,) -> np.ndarray:
-    S_ao = np.zeros((n_ao, n_ao), dtype=np.float64)
-
+c
     for p in range(pair_a.shape[0]):
         a = pair_a[p]
         b = pair_b[p]
