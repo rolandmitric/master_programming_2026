@@ -7,6 +7,7 @@ from .atom import ELEMENT_SYMBOL
 ODD_DF = np.array([1, 1, 2, 3, 8, 15, 48, 105, 384, 945])
 PI = np.pi
 
+
 def l_to_ijk(L):
     return [
         (i, j, L - i - j)
