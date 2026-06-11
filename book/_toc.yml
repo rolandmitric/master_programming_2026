@@ -11,5 +11,9 @@ chapters:
     title: Basis Sets
   - file: symbolic_overlap_generator.ipynb
     title: Symbolic Overlap Generator
+  - file: symbolic_kinetic_generator.ipynb
+    title: Symbolic Kinetic Generator
+  - file: symbolic_nuclear_attraction_generator.ipynb
+    title: Symbolic Nuclear Attraction Generator
   - file: molecular_integrals.ipynb
     title: Molecular Integrals
