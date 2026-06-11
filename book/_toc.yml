@@ -13,9 +13,11 @@ chapters:
     title: Symbolic Overlap Generator
   - file: symbolic_kinetic_generator.ipynb
     title: Symbolic Kinetic Generator
-  - file: symbolic_nuclear_attraction_generator.ipynb
+  - file: symbolic_nuclear_generator.ipynb
     title: Symbolic Nuclear Attraction Generator
   - file: symbolic_eri_generator.ipynb
     title: Symbolic Electron Repulsion Integral Generator
   - file: molecular_integrals.ipynb
     title: Molecular Integrals
+  - file: molecular_integrals_with_boys.ipynb
+    title: Molecular Integrals with Boys Function

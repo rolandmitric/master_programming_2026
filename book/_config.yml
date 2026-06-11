@@ -32,9 +32,6 @@ sphinx:
       - _build
       - _build/**
       - develop.ipynb
-      - symbolic_eri_generator.ipynb
-      - symbolic_kinetic_generator.ipynb
-      - symbolic_nuclear_generator.ipynb
       - symbolic_nuclear_permutation_class.ipynb
     html_css_files:
       - custom.css
