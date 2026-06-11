@@ -15,5 +15,7 @@ chapters:
     title: Symbolic Kinetic Generator
   - file: symbolic_nuclear_attraction_generator.ipynb
     title: Symbolic Nuclear Attraction Generator
+  - file: symbolic_eri_generator.ipynb
+    title: Symbolic Electron Repulsion Integral Generator
   - file: molecular_integrals.ipynb
     title: Molecular Integrals
