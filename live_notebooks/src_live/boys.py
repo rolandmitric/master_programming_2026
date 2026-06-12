@@ -2,7 +2,6 @@ import math
 import numpy as np
 from numba import njit
 
-
 @njit(cache=True, fastmath=True)
 def Boys(n, t):
     if t < 1e-8:
