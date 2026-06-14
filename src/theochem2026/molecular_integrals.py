@@ -421,13 +421,13 @@ class MolecularIntegrals:
     ijk_data: object = field(init=False)
     eri_case_data: object = field(init=False)
 
-    def __post_init__(self) -> None:
+    def __post_init__(self):
         self.shells = []
         for atom in self.molecule.atoms:
-            atom_symbol = ELEMENT_SYMBOLS[atom.atomic_number]
+            atom_symbol = ELEMENT_SYMBOL[atom.atomic_number]
             for template_shell in self.basis_set.elements[atom_symbol]:
                 shell = copy.deepcopy(template_shell)
-                shell.set_center(np.asarray(atom.coord, dtype=np.float64) * ANG2BOHR)
+                shell.set_center(np.asarray(atom.coord * ANG2BOHR, dtype=np.float64))
                 self.shells.append(shell)
 
         self.dims = np.asarray([DIM_SHELL[shell.l] for shell in self.shells], dtype=np.int64)
@@ -438,6 +438,8 @@ class MolecularIntegrals:
         self.coeff_data = List()
         self.norm_data = List()
         self.center_data = List()
+        self.ijk_data = List()
+
         for shell in self.shells:
             self.exp_data.append(np.ascontiguousarray(shell.exponents, dtype=np.float64))
             self.coeff_data.append(np.ascontiguousarray(shell.coefficients, dtype=np.float64))
@@ -446,34 +448,48 @@ class MolecularIntegrals:
 
         pair_a_list = []
         pair_b_list = []
-        self.ijk_data = List()
+
         for a, shell_a in enumerate(self.shells):
             for b in range(a + 1):
                 pair_a_list.append(a)
                 pair_b_list.append(b)
-                ijk_lmn = LA_LB_TO_IJKLMN[(shell_a.l, self.shells[b].l)]
+
+                ijk_lmn = LA_LB_TO_IJKLMN[(self.shells[a].l, self.shells[b].l)]
                 self.ijk_data.append(np.ascontiguousarray(ijk_lmn, dtype=np.int64))
 
-        self.pair_a = np.asarray(pair_a_list, dtype=np.int64)
-        self.pair_b = np.asarray(pair_b_list, dtype=np.int64)
+        self.pair_a_list = np.ascontiguousarray(pair_a_list, dtype=np.int64)
+        self.pair_b_list = np.ascontiguousarray(pair_b_list, dtype=np.int64)
 
         quartet_a_list = []
         quartet_b_list = []
         quartet_c_list = []
         quartet_d_list = []
-        self.eri_case_data = List()
+
+        self.ijklmnopqrst_data = List()
+
         for p, a in enumerate(pair_a_list):
             b = pair_b_list[p]
             for q in range(p + 1):
                 c = pair_a_list[q]
                 d = pair_b_list[q]
+
                 quartet_a_list.append(a)
                 quartet_b_list.append(b)
                 quartet_c_list.append(c)
                 quartet_d_list.append(d)
-                ijkl = build_eri_indices(self.shells[a].l, self.shells[b].l, self.shells[c].l, self.shells[d].l)
-                case_ids = build_eri_case_ids(ijkl)
-                self.eri_case_data.append(np.ascontiguousarray(case_ids, dtype=np.int64))
+
+                ab_data = LA_LB_TO_IJKLMN[(self.shells[a].l, self.shells[b].l)]
+                cd_data = LA_LB_TO_IJKLMN[(self.shells[c].l, self.shells[d].l)]
+
+                ijklmnopqrst = [
+                    ab + cd
+                    for ab in ab_data
+                    for cd in cd_data
+                ]
+
+                self.ijklmnopqrst_data.append(
+                    np.ascontiguousarray(ijklmnopqrst, dtype=np.int64)
+                )
 
         self.quartet_a = np.asarray(quartet_a_list, dtype=np.int64)
         self.quartet_b = np.asarray(quartet_b_list, dtype=np.int64)
