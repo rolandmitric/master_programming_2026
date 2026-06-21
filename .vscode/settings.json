@@ -1,0 +1,10 @@
+{
+    "chat.editor.fontSize": 24,
+    "chat.fontSize": 24,
+    "terminal.integrated.fontSize": 24,
+    "editor.fontSize": 24,
+    "editor.minimap.sectionHeaderFontSize": 24,
+    "debug.console.fontSize": 24,
+    "scm.inputFontSize": 24,
+    "markdown.preview.fontSize": 24
+}

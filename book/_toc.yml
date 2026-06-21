@@ -21,3 +21,5 @@ chapters:
     title: Molecular Integrals
   - file: molecular_integrals_with_boys.ipynb
     title: Molecular Integrals with Boys Function
+  - file: hartree_fock_theory.ipynb
+    title: Hartree-Fock Theory
