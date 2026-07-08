@@ -23,3 +23,5 @@ chapters:
     title: Molecular Integrals with Boys Function
   - file: hartree_fock_theory.ipynb
     title: Hartree-Fock Theory
+  - file: jordan_wigner.ipynb
+    title: Second quantization and Jordan-Wigner mapping
